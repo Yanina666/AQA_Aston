@@ -3,7 +3,8 @@ public class Lesson2 {
         System.out.println(checkSum(5, 6));
         positiveOrNegative(0);
         System.out.println(checkPositiveOrNegative(8));
-        printString("Yanina", 5);
+        printString("Yanina");
+        System.out.println(checkYear(2024));
     }
 
     public static boolean checkSum(int a, int b) {
@@ -31,10 +32,17 @@ public class Lesson2 {
         }
     }
 
-    public static void printString(String name, int a) {
+    public static void printString(String name) {
         for (int i = 1; i <= 5; i++) {
             System.out.println("Hi"+"," + ""+ name + "!");
-
         }
     }
+
+    public static boolean checkYear(int a){
+        if(a % 4 == 0 && a % 100 !=0 || a % 400 ==0){
+            return true;
+        } else {
+            return false;
+        }
+}
 }
