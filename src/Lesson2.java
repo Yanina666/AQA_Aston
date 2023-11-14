@@ -10,11 +10,13 @@ public class Lesson2 {
         updateTheNumbers();
         insertTheMassive();
         multiplyTheNumbers();
+        makeDiagonal();
+        System.out.println(Arrays.toString(initialValue(10, 6)));
     }
 
     public static boolean checkSum(int a, int b) {
         int sum = a + b;
-        if (sum > 10 && sum <= 20) {
+        if (sum >= 10 && sum <= 20) {
             return true;
         } else {
             return false;
@@ -60,22 +62,44 @@ public class Lesson2 {
             System.out.println("New massive:" + Arrays.toString(nums));
         }
     }
-    public static void insertTheMassive(){
+
+    public static void insertTheMassive() {
         int[] arr = new int[100];
-        for(int i =0; i<100; i++){
+        for (int i = 0; i < 100; i++) {
             arr[i] = i + 1;
-            System.out.println("arr["+ i +"] = " +arr[i]);
+            System.out.println("arr[" + i + "] = " + arr[i]);
         }
     }
 
-    public static void multiplyTheNumbers(){
+    public static void multiplyTheNumbers() {
         int[] nums = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         {
-            for(int i = 0; i < nums.length; i++) {
-                if(nums[i] < 6) nums[i] *=2; {
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] < 6) nums[i] *= 2;
+                {
                     System.out.println(nums[i] + " ");
-                    }
                 }
             }
         }
     }
+
+    public static void makeDiagonal() {
+        int[][] table = new int[5][5];
+        for (int i = 0; i < table.length; i++) { //идем по строкам
+            for (int j = 0; j < table.length; j++) { //идем по столбцам
+                table[i][i] = 1;
+                System.out.print(table[i][j] + "");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static int[] initialValue(int len, int initialValue){
+        int[] arr = new int[len];
+        for (int i= 0; i<arr.length; i++){
+            arr[i] = initialValue;
+        }
+        return arr;
+    }
+}
