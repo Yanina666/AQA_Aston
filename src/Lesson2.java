@@ -2,16 +2,21 @@ import java.util.Arrays;
 
 public class Lesson2 {
     public static void main(String[] args) {
-        System.out.println(checkSum(5, 6));
-        positiveOrNegative(0);
-        System.out.println(checkPositiveOrNegative(8));
-        printString("Yanina");
-        System.out.println(checkYear(2024));
-        updateTheNumbers();
-        insertTheMassive();
-        multiplyTheNumbers();
-        makeDiagonal();
-        System.out.println(Arrays.toString(initialValue(10, 6)));
+//        System.out.println(checkSum(5, 6));
+//        positiveOrNegative(0);
+//        System.out.println(checkPositiveOrNegative(8));
+//        printString("Yanina", 5);
+//        System.out.println(checkYear(2024));
+//        updateTheNumbers();
+//        int[] arr1 = new int[100];
+//       System.out.println(Arrays.toString(insertTheMassive(arr1)));
+//        int[] nums = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+//        System.out.println(Arrays.toString(multiplyTheNumbers(nums)));
+        int[][] nums2 = new int[3][3];
+        for(int i = 0; i <nums2.length;i++){
+            System.out.println(Arrays.deepToString(yyy(nums2)));
+        }
+//        System.out.println(Arrays.toString(initialValue(10, 6)));
     }
 
     public static boolean checkSum(int a, int b) {
@@ -39,9 +44,9 @@ public class Lesson2 {
         }
     }
 
-    public static void printString(String name) {
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("Hi" + "," + "" + name + "!");
+    public static void printString(String str, int count) {
+        for (int i = 1; i <= count; i++) {
+            System.out.println(str);
         }
     }
 
@@ -63,37 +68,38 @@ public class Lesson2 {
         }
     }
 
-    public static void insertTheMassive() {
-        int[] arr = new int[100];
-        for (int i = 0; i < 100; i++) {
+    public static int[] insertTheMassive(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = i + 1;
-            System.out.println("arr[" + i + "] = " + arr[i]);
         }
+        return arr;
     }
 
-    public static void multiplyTheNumbers() {
-        int[] nums = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+
+    public static int[] multiplyTheNumbers(int[] nums) {
         {
             for (int i = 0; i < nums.length; i++) {
                 if (nums[i] < 6) nums[i] *= 2;
-                {
-                    System.out.println(nums[i] + " ");
+            }
+            return nums;
+
+        }
+    }
+
+    public static int[][] yyy(int[][] array){
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (i == j) {
+                    array[i][j] = 1;
+                } else {
+                    array[i][j] = 0;
                 }
             }
-        }
+        }return array;
     }
 
-    public static void makeDiagonal() {
-        int[][] table = new int[5][5];
-        for (int i = 0; i < table.length; i++) { //идем по строкам
-            for (int j = 0; j < table.length; j++) { //идем по столбцам
-                table[i][i] = 1;
-                System.out.print(table[i][j] + "");
-            }
-            System.out.println();
-        }
 
-    }
+
 
     public static int[] initialValue(int len, int initialValue){
         int[] arr = new int[len];
