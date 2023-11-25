@@ -5,6 +5,10 @@ public class Plate {
         this.food = food;
     }
 
+    int getFood() {
+        return food;
+    }
+
    public void decreaseFood(int n) {
         food -= n;
     }
