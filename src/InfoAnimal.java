@@ -7,11 +7,17 @@ public class InfoAnimal {
         allCats[2] = new Cat("Blacky", 10, false);
         allCats[3] = new Cat("Maks", 45, false);
 
+        Dog Reks = new Dog();
+        Reks.run(30);
+        Reks.swim(11);
+
+
+
         Plate plate = new Plate(50);
         plate.checkFood(8);
 
         System.out.println("You has four cats: " + allCats[0].getName() + ", "
-                + allCats[1].getName() + " и " + allCats[2].getName()+ ", "
+                + allCats[1].getName() + " and " + allCats[2].getName() + ", "
                 + allCats[3].getName());
 
         System.out.println("Now we have: " + plate.getFood() + "g. of food\n");
@@ -27,12 +33,13 @@ public class InfoAnimal {
                 }
             }
 //кот ест
-            i.eat(plate);
-            System.out.println("Cat " + i.getName() + " ate " + i.getAppetite() + " g.of food ");
+                i.eat(plate);
+                System.out.println("Cat " + i.getName() + " ate " + i.getAppetite() + " g.of food ");
 
-            //декрементация показателя сытости
-            i.setSatiate(i.getSatiate(40) - 1);
+                //декрементация показателя сытости
+                i.setSatiate(i.getSatiate(40) - 1);
+            }
+            System.out.println("In the plate we have: " + plate.getFood() + " g.of food.\n");
         }
-        System.out.println("In the plate we have: " + plate.getFood() + " g.of food.\n");
     }
-}
+

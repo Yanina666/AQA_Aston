@@ -3,7 +3,7 @@ public class Dog extends Animal {
     private final int maxSwimLength = 10;
     private static int count;
 
-    @Override
+  @Override
     public void run(int length){
         if((length >= 0) && (length <= maxRunLength))
             System.out.println("Dog run: " + length);

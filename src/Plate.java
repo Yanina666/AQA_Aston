@@ -15,7 +15,7 @@ public class Plate {
 
     public void increaseFood() {
         this.food += 30;
-        System.out.println("There are 30 in the plate");
+        System.out.println("We add 30 in the plate");
     }
 
     public boolean checkFood(int n) {
