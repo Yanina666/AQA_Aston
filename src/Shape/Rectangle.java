@@ -1,16 +1,23 @@
 package Shape;
 
 public class Rectangle implements Shape{
+    String name;
     private double width;
     private double height;
     private String shapeColor;
     private String borderColor;
 
-    public Rectangle(double width, double height, String shapeColor, String borderColor) {
+    public Rectangle(String name, double width, double height, String shapeColor, String borderColor) {
+        this.name = name;
         this.width = width;
         this.height = height;
         this.shapeColor= shapeColor;
         this.borderColor = borderColor;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
