@@ -1,41 +1,68 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
-    public static void main(String[] args){
-        printThreeWords();
-        checkSumSign();
-        printColor();
-        compareNumbers();
+
+    private String[] header;
+    private int[][] data;
+
+    public Main(String[] header, int[][] data) {
+        this.header = header;
+        this.data = data;
     }
 
-    private static void printThreeWords() {
-        System.out.print("Orange \nBanana \nApple\n");
+    public static void main(String[] args) throws IOException {
+        File file = new File("./file.csv");
+        if (file.exists()) {
+            file.createNewFile();
+        }
+        List<String> stringList = new ArrayList<>();
+        stringList.add("Value 1; Value 2; Value 3");
+        stringList.add("100; 200; 123");
+        stringList.add("300; 400; 500");
+        addStringToFile(stringList, file);
+
+        stringList = readFileToStrings(file);
+        System.out.println(getAppData(stringList));
     }
 
-    private static void checkSumSign(){
-        int a;
-        int b;
-        a = -1;
-        b = 0;
-        if(a+b>=0){
-            System.out.println("Сумма положительная");
-        }else System.out.println("Сумма отрицательная");
-    }
-
-    private static void printColor() {
-        int value = 1000;
-        if (value <= 0) {
-            System.out.println("Красный");
-        } else if (value > 100) {
-            System.out.println("Зеленый");
-        } else {
-            System.out.println("Желтый");
+    public static void addStringToFile(List<String> stringList, File file) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            for (String s : stringList) {
+                writer.write(s);
+                writer.newLine();
+            }
         }
     }
 
-    private static void compareNumbers(){
-        int a = 5;
-        int b = 10;
-        if(a>=b){
-            System.out.println("a>=b");
-        }else System.out.println("a<b");
+        public static List<String> readFileToStrings(File file) throws IOException {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String s;
+                List<String> stringList = new ArrayList<>();
+                while ((s = reader.readLine()) != null) {
+                    stringList.add(s);
+                }
+                return stringList;
+            }
+        }
+    public static Main getAppData (List<String> stringList) {
+        String headersString = stringList.get(0);
+        String[] headers = headersString.split(";");
+        int[][] data = new int[headers.length][stringList.size() - 1];
+        List<String[]> listOfArrays = new ArrayList<>(stringList.size() - 1);
+        for (int i = 1; i < stringList.size(); i++) {
+            String s = stringList.get(i).trim();
+            String[] values = s.split(";");
+            listOfArrays.add(values);
+        }
+        for (int i = 0; i < listOfArrays.size(); i++) {
+            String[] values = listOfArrays.get(i);
+            for (int j = 0; j < values.length; j++) {
+                data[j][i] = Integer.parseInt(values[j].trim());
+            }
+        }
+        return new Main(headers, data);
     }
 }
+
