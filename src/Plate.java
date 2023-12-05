@@ -9,9 +9,14 @@ public class Plate {
         return food;
     }
 
-   public void decreaseFood(int n) {
-        food -= n;
-    }
+   //уменьшаем еду в тарелке усатым
+    public boolean decreaseFood(int n) {
+        if(n <= food){
+            food -= n;
+            return true;
+        }
+       return false;  //еды не хватило, пусть ловит мышей
+   }
 
     public void increaseFood() {
         this.food += 30;

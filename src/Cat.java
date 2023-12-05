@@ -48,7 +48,7 @@ public class Cat extends Animal {
     }
 
     int setSatiate(int satiate) {
-       return satiate;
+        return satiate;
     }
 
     int getSatiate(int satiate) {
@@ -56,6 +56,9 @@ public class Cat extends Animal {
     }
 
     public void eat(Plate p) {
-        p.decreaseFood(appetite);
+        if (!satiate)
+            if (p.decreaseFood(appetite)) {
+                satiate = true;
+            }
     }
 }

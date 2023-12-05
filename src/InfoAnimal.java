@@ -1,8 +1,7 @@
-
 public class InfoAnimal {
     public static void main(String[] args) {
         Cat[] allCats = new Cat[4];
-        allCats[0] = new Cat("Lucky", 7, false);
+        allCats[0] = new Cat("Lucky", 1000, false);
         allCats[1] = new Cat("Ozzy", 12, false);
         allCats[2] = new Cat("Blacky", 10, false);
         allCats[3] = new Cat("Maks", 45, false);
@@ -33,13 +32,12 @@ public class InfoAnimal {
                 }
             }
 //кот ест
-                i.eat(plate);
-                System.out.println("Cat " + i.getName() + " ate " + i.getAppetite() + " g.of food ");
+            i.eat(plate);
+            System.out.println("Cat " + i.getName() + " ate " + i.getAppetite() + " g.of food ");
 
-                //декрементация показателя сытости
-                i.setSatiate(i.getSatiate(40) - 1);
-            }
-            System.out.println("In the plate we have: " + plate.getFood() + " g.of food.\n");
+            //декрементация показателя сытости
+            i.setSatiate(i.getSatiate(40) - 1);
         }
+        System.out.println("In the plate we have: " + plate.getFood() + " g.of food.\n");
     }
-
+}
