@@ -60,6 +60,7 @@ public class Main {
             String[] values = listOfArrays.get(i);
             for (int j = 0; j < values.length; j++) {
                 data[j][i] = Integer.parseInt(values[j].trim());
+                System.out.println(listOfArrays.get(i).toString()+ "" + values[j].toString());
             }
         }
         return new Main(headers, data);
