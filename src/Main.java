@@ -1,41 +1,17 @@
 public class Main {
-    public static void main(String[] args){
-        printThreeWords();
-        checkSumSign();
-        printColor();
-        compareNumbers();
-    }
+    public static void main(String[] args) throws Exception {
+        try {
+            MyArraySizeException method1 = new MyArraySizeException();
+            MyArrayDataException method2 = new MyArrayDataException();
+            method1.Method1();
+            method2.Method2();
+        } catch (NegativeArraySizeException e) {
+            System.out.println("Второй массив отрицательного размера. Вывести невозможно. Исключение: " + e);
+            e.printStackTrace();
 
-    private static void printThreeWords() {
-        System.out.print("Orange \nBanana \nApple\n");
-    }
-
-    private static void checkSumSign(){
-        int a;
-        int b;
-        a = -1;
-        b = 0;
-        if(a+b>=0){
-            System.out.println("Сумма положительная");
-        }else System.out.println("Сумма отрицательная");
-    }
-
-    private static void printColor() {
-        int value = 1000;
-        if (value <= 0) {
-            System.out.println("Красный");
-        } else if (value > 100) {
-            System.out.println("Зеленый");
-        } else {
-            System.out.println("Желтый");
+        } catch (NumberFormatException e) {
+            System.out.println("Не удалось заменить символьные элементы массива на целочисленные. Ошибка: " + e);
+            e.printStackTrace();
         }
-    }
-
-    private static void compareNumbers(){
-        int a = 5;
-        int b = 10;
-        if(a>=b){
-            System.out.println("a>=b");
-        }else System.out.println("a<b");
     }
 }
