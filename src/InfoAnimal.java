@@ -1,7 +1,7 @@
 public class InfoAnimal {
     public static void main(String[] args) {
         Cat[] allCats = new Cat[4];
-        allCats[0] = new Cat("Lucky", 1000, false);
+        allCats[0] = new Cat("Lucky", 57, false);
         allCats[1] = new Cat("Ozzy", 12, false);
         allCats[2] = new Cat("Blacky", 10, false);
         allCats[3] = new Cat("Maks", 45, false);
@@ -28,7 +28,7 @@ public class InfoAnimal {
 
                 //если в миске не хватает еды, чтобы накормить кота, она будет добавлена
                 if (!plate.checkFood(i.getAppetite())) {
-                    plate.increaseFood();
+                    plate.increaseFood(50);
                 }
             }
 //кот ест

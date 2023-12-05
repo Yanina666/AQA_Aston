@@ -18,9 +18,8 @@ public class Plate {
        return false;  //еды не хватило, пусть ловит мышей
    }
 
-    public void increaseFood() {
-        this.food += 30;
-        System.out.println("We add 30 in the plate");
+    public void increaseFood(int n) {
+        this.food += n;
     }
 
     public boolean checkFood(int n) {
