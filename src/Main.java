@@ -1,41 +1,13 @@
 public class Main {
-    public static void main(String[] args){
-        printThreeWords();
-        checkSumSign();
-        printColor();
-        compareNumbers();
+    public static void main(String[] args) {
+        Box<Orange> boxOfOranges = new Box<>(new Orange(),2);
+        Box<Orange> boxOfOranges2 = new Box<>();
+        Box<Apple> boxOfApples = new Box<>(new Apple(),3);
+        Box<Apple> boxOfApples2 = new Box<>();
+        System.out.println(boxOfOranges.compare(boxOfApples)); //сравниваю коробки с яблоками и апельсинами
+        System.out.println(boxOfApples2.compare(boxOfApples));//сравнила коробки с яблоками
+        System.out.println(boxOfOranges.compare(boxOfOranges2));//сравнила коробки с апельсинами
+        boxOfOranges.pourInto(boxOfOranges2); //пересыпали апельсины в апельсины
+        System.out.println(boxOfOranges2.getWeight());
     }
-
-    private static void printThreeWords() {
-        System.out.print("Orange \nBanana \nApple\n");
     }
-
-    private static void checkSumSign(){
-        int a;
-        int b;
-        a = -1;
-        b = 0;
-        if(a+b>=0){
-            System.out.println("Сумма положительная");
-        }else System.out.println("Сумма отрицательная");
-    }
-
-    private static void printColor() {
-        int value = 1000;
-        if (value <= 0) {
-            System.out.println("Красный");
-        } else if (value > 100) {
-            System.out.println("Зеленый");
-        } else {
-            System.out.println("Желтый");
-        }
-    }
-
-    private static void compareNumbers(){
-        int a = 5;
-        int b = 10;
-        if(a>=b){
-            System.out.println("a>=b");
-        }else System.out.println("a<b");
-    }
-}
