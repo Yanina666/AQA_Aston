@@ -71,8 +71,8 @@ public class AppTest {
         WebElement button = form.findElement(By.xpath(".//button[contains(@class, 'button button__default') " +
                 "and text()='Продолжить']"));
         button.click();
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//div/iframe")));
-        Assert.assertTrue(driver.findElement(By.xpath("//div/iframe")).isDisplayed());
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOfElementLocated
+                        (By.className("container-fluid")));
+        Assert.assertTrue(driver.findElement(By.className("container-fluid")).isDisplayed());
     }
 }
